@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
+import classes from './App.css';
 
 import Useroutput from './components/UserOutput/Useroutput';
 import Userinput from './components/UserInput/Userinput';
