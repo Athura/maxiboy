@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+// To enable css modules you have to eject and then edit the webpack.config.dev.js file in config folder. Add below to it
+// modules: true,
+// localIdentName: '[name]__[local]__[hash:base64:5]'
 import classes from './App.css';
 
 import Useroutput from './components/UserOutput/Useroutput';
