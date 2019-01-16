@@ -49,22 +49,39 @@ class App extends Component {
       return <Char character={ch} key={ index } onClick = {() => this._deleteCharHandler(index) } />;
     });
 
+    const style = {
+      backgroundColor: 'green',
+      color: 'white',
+      font: 'inherit',
+      border: '1px solid blue',
+      padding: '8px',
+      cursor: 'pointer',
+    };
+
+    let classes = [];
+    if (this.state.count.length <=2) {
+      classes.push('red'); // classes = ['red']
+    }
+    if(this.state.count.length <=1) {
+      classes.push('bold'); // classes = ['red', 'bold']
+    }
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-          <Userinput username={ this.state.usernames[0].username } onChange={ this._manipulateState } />
-          <Useroutput username={ this.state.usernames[0].username } />
-          <input type="text"  onChange={ this._countInputField } value={this.state.count} />
-          <p>{this.state.count}</p>
-          <Validation inputLength={ this.state.count.length } />
-          { charList }
-        </p>
-      </div>
+        <div className="App">
+          <header className="App-header">
+            <img src={logo} className="App-logo" alt="logo" />
+            <h1 className="App-title">Welcome to React</h1>
+          </header>
+          <p className="App-intro">
+            <button style={ style }>This is a button that does nothing</button>
+            <Userinput username={ this.state.usernames[0].username } onChange={ this._manipulateState } />
+            <Useroutput username={ this.state.usernames[0].username } />
+            <input type="text"  onChange={ this._countInputField } value={this.state.count} />
+            <p className={classes.join(' ')} >{this.state.count}</p>
+            <Validation inputLength={ this.state.count.length } />
+            { charList }
+          </p>
+        </div>
     );
   }
 }
