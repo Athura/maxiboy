@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 // To enable css modules you have to eject and then edit the webpack.config.dev.js file in config folder. Add below to it
 // modules: true,
 // localIdentName: '[name]__[local]__[hash:base64:5]'
@@ -61,29 +60,23 @@ class App extends Component {
       cursor: 'pointer',
     };
 
-    let classes = [];
+    const assignedClasses = [];
     if (this.state.count.length <=2) {
-      classes.push('red'); // classes = ['red']
+      assignedClasses.push(classes.red); // classes = ['red']
     }
     if(this.state.count.length <=1) {
-      classes.push('bold'); // classes = ['red', 'bold']
+      assignedClasses.push(classes.bold); // classes = ['red', 'bold']
     }
 
     return (
-        <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h1 className="App-title">Welcome to React</h1>
-          </header>
-          <p className="App-intro">
+        <div className={ classes.App }>
             <button style={ style }>This is a button that does nothing</button>
             <Userinput username={ this.state.usernames[0].username } onChange={ this._manipulateState } />
             <Useroutput username={ this.state.usernames[0].username } />
             <input type="text"  onChange={ this._countInputField } value={this.state.count} />
-            <p className={classes.join(' ')} >{this.state.count}</p>
+            <p className={assignedClasses.join(' ')} >{this.state.count}</p>
             <Validation inputLength={ this.state.count.length } />
             { charList }
-          </p>
         </div>
     );
   }
